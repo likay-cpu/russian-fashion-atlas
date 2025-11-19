@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="prr.css">
+</head>
+<body>
+    <main class="wrap">
+        <h1>Калькулятор</h1>
+
+        <div id="status" class="status"></div>
+
+        <div class="buttons">
+            <button id="btnMoto" class="vehicle" title="Мотоцикл">
+                <img src="moto.png" alt="Мотоцикл">
+                <span>Мотоцикл</span>
+            </button>
+
+            <button id="btnCar" class="vehicle" title="Машина">
+                <img src="car.png" alt="Машина">
+                <span>Машина</span>
+            </button>
+        </div>
+
+        <div class="slider-row">
+            <label for="liters">Выберите количество литров бензина:</label>
+            <input type="range" id="liters" min="0" max="100" step="1" value="20">
+            <output id="litersOut">20 л</output>
+        </div>
+
+       
+
+        <div class="result">
+            <img id="smiley" alt="Результат" style="display:none;">
+        </div>
+    </main>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
