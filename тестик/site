@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Тестик</title>
+    <link rel="stylesheet" href="vopros.css" />
+    <script src="pr.js" defer></script>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <h1>Сленговый тест </h1>
+            <div id="endBanner" class="banner hidden">Вопросы закончились</div>
+        </header>
+
+        <main>
+            <section id="quizArea" class="quiz-area"></section>
+            <div id="stats" class="stats hidden"></div>
+
+            <section id="review" class="review hidden">
+                <h2>Итоги</h2>
+                <ul id="reviewList" class="review-list"></ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
