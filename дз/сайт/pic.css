@@ -1,0 +1,204 @@
+p{
+color:rgb(0,153,153);
+font-weight:bold;
+text-decoration:overline;
+}
+.content {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: rgb(174,190,141); 
+}
+.window{
+ position: relative;
+  top: 30px;
+  left: 50px;
+  width: 90px;
+  height: 90px;
+  background:radial-gradient(circle at center, 
+              rgba(255, 255, 255, 0.8) 0%, 
+              rgb(57, 107, 242) 70%);
+  border: 4px solid white;
+ box-shadow: 0 0 20px rgba(87, 129, 244, 0.6);
+ z-index: 1;
+}
+.sun{
+position: absolute;
+  top: 0;
+  right: 0;
+width: 24px;
+  height: 24px;
+border:5px solid rgba(240,227,41);
+border-radius:40px 1px 30px 40px;
+background: rgb(244,237,135);
+}
+.table{
+position:absolute;
+width: 200px;
+  height: 200px;
+background: rgb(211,115,46);
+right:10px;
+bottom:4px;
+clip-path: polygon(51% 64%, 32% 64%, 32% 59%, 77% 59%, 77% 64%, 60% 64%, 61% 76%, 59% 86%, 67% 97%, 44% 97%, 52% 86%, 50% 76%);
+ z-index: 2;
+}
+.uzor{
+  position:absolute;
+  inset:-15px; /* выпирание */
+  background:
+    /* верх  */
+    radial-gradient(circle 5px at 9px 18px,
+      transparent 5px, #fff 7px 9px, transparent 9px)
+      left 0 top -9px / 20px 20px repeat-x,
+
+    /* лево */
+    radial-gradient(circle 6px at 9px 12px,
+      transparent 3px, #fff 4px 6px, transparent 6px)
+      left -5px top 0px / 20px 18px repeat-y,
+
+    /* право */
+    radial-gradient(circle 9px at 0px 9px,
+      transparent 5px, #fff 7px 9px, transparent 9px)
+      right -9px top 0px / 20px 18px repeat-y;
+
+
+
+}
+
+/*Основной контейнер*/
+.stul-l{
+  position: absolute;
+  left: 2px;
+  bottom: 2px;
+  width: 44px;
+  height: 96px;
+}
+/* Спинка левого стула — дуга из двух реек */
+.spinka-l{
+  inset: -20px;
+  position: absolute;
+  right:20px;
+  top:-6px;
+  height: 104px;
+  border-right: 4px solid rgb(211,115,46);
+  border-radius: 80px 80px 80px 0;    /* дуга */
+}
+
+
+.sedlo-l{
+  position: absolute;
+  left: 20px;
+  bottom: 40px;
+  width: 40px;
+  height: 8px;
+  background:
+    radial-gradient(circle, #6a3712 0 3px, transparent 3px) 3px 50%/16px 16px no-repeat,
+    radial-gradient(circle, #6a3712 0 3px, transparent 2px) 12px 50%/16px 16px no-repeat,
+    radial-gradient(circle, #6a3712 0 3px, transparent 2px) 21px 50%/16px 16px no-repeat,
+    rgb(211,115,46);
+  z-index: 2;
+}
+
+
+.noga-l{
+  position: absolute;
+  left: 50px;
+bottom:0;
+  width: 6px;
+  height: 40px;
+  background: rgb(211,115,46);
+  z-index: 1; 
+}
+/* Правый стул — контейнер  */
+.stul-r{
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 84px;
+  height: 132px;
+}
+
+.spinka-r{
+  position: absolute;
+  inset: -20px;     
+  left: 60px;       
+  top: 32px;
+  height: 103px;
+  border-left: 4px solid rgb(211,115,46);       
+  border-radius: 80px 80px 0 80px;        
+}
+
+.sedlo-r{
+  position: absolute;
+  right: 20px;   
+  bottom: 40px;
+  width: 40px;
+  height: 8px;
+  background:
+    radial-gradient(circle, #6a3712 0 3px, transparent 2px) 3px 50%/16px 16px no-repeat,
+    radial-gradient(circle, #6a3712 0 3px, transparent 2px) 12px 50%/16px 16px no-repeat,
+    radial-gradient(circle, #6a3712 0 3px, transparent 2px) 21px 50%/16px 16px no-repeat,
+    rgb(211,115,46);
+  z-index: 2;
+}
+
+
+.noga-r{
+  position: absolute;
+  right: 50px;     
+  bottom: 0;
+  width: 6px;
+  height: 42px;
+  background: rgb(211,115,46);
+  z-index: 1;     
+}
+.first-eclips{
+position:absolute;
+width: 200px;
+  height: 200px;
+background:radial-gradient(circle at 20% 20%, 
+              rgba(255, 255, 255, 0.9) 0%, 
+              rgba(227, 29, 68, 0.8) 10%,
+              rgb(227, 29, 68) 100%);
+clip-path: ellipse(13% 9% at 23% 31%);
+z-index:3;   
+}
+
+.second-eclips{
+position:absolute;
+width: 200px;
+  height: 200px;
+background:  radial-gradient(circle at 20% 20%, 
+              rgba(255, 255, 255, 0.9) 0%, 
+              rgba(227, 29, 68, 0.7) 10%,
+              rgb(227, 29, 68) 100%);
+z-index:2;   
+clip-path: ellipse(9% 6% at 23% 24%);
+}
+
+.pimp{
+position:absolute;
+width: 200px;
+  height: 200px;
+background:rgb(227, 29, 68);
+z-index:1;   
+clip-path: ellipse(2% 2% at 23% 18%);
+}
+.ruka{
+position: absolute;
+  right: 9px;        
+  bottom: 18px;
+  width: 14px;
+  height: 14px;
+   border:3.5px solid red;
+	border-radius: 50%;        
+  z-index: 1;        
+}
+.nosik{
+position:absolute;
+width: 200px;
+  height: 200px;
+background:rgb(227, 29, 68);
+z-index:1;   
+clip-path: polygon(1% 33%, 7% 34%, 19% 34%, 15% 36%);
+}
