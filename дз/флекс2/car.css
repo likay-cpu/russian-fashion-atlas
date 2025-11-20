@@ -1,0 +1,228 @@
+﻿.content {   
+    width: 200px;
+    height: 200px;
+    border: 5px solid rgb(128,128,128);
+    background: linear-gradient(to bottom, rgb(110,200,250) 0%, #ffffbe 100%);
+    overflow: hidden;
+}
+
+/*по умолчанию главная ось-горизонтальная (row)*/
+.scene {
+    height: 100%;
+    display: flex;
+    align-items: flex-end; /*прижимаем дочерние элементы к поперечной оси*/
+    justify-content: center; /*центрируем по горизонтали*/
+    position: relative; /*ближайший «позиционированный» предок для абсолютно позиционированных потомков*/
+}
+
+
+.car {
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px; /*вертикальный промежуток между кузовом и колесами*/
+    /* margin-top: -10px; приподнимаем всю машину чуть выше */
+}
+
+
+.car-body {
+    width: 100%;
+    height: auto;
+    display: block;
+   /*position:relative;*/
+
+}
+
+/*Когда мышь над .car → применяем к элементу .car-body--default анимацию shake.*/
+.car:hover .car-body--default {
+    animation: shake .6s ease-in-out infinite; /*ease-in-out функция скорости,медленно стартует-ускоряетс-медленно конец*/
+}
+/*То есть hover висит на родителе, а стиль применяем к ребёнку. 
+  Это удобно для триггеров «наведи на группу — измени часть».*/
+
+
+.squirrel {
+    position: absolute;
+    display: none; /*По умолчанию белка скрыта */
+    pointer-events: none; /*когда элемент ВИДИМ, он «прозрачный» для мыши: курсор как будто проходит сквозь него*/
+}
+.squirrel--default {
+  width: 37px;
+  left: 73px;
+  top: 80px;
+}
+.squirrel--alt {
+  width: 44px;
+  right: 8px;
+  bottom: 8px;
+
+}
+
+.wheels {
+    width: 100%;
+    padding: 0 18px; /*добавляем «внутренние поля» слева и справа по 18px, чтобы колёса не прилипали к краям.*/
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between; /*разнести колёса по краям контейнера.*/
+    align-items: center;
+    transform: translateY(-40px); /*под кузов*/
+}
+
+
+
+.wheel {
+    width: 38px;
+    height: 38px;
+    display: block;
+    animation: spin 2s linear infinite;
+    transform-origin: 50% 50%;
+    margin-bottom: -6px;
+    animation-play-state: paused; /*по умолчанию оно на паузе. Значит «готово к старту».*/
+}
+
+/*когда курсор над контейнером .wheels, применяем стиль ко всем .wheel внутри.*/
+.wheels:hover .wheel {
+        animation-play-state: running;
+    }
+
+.wheel:first-child {
+    margin-left: 4px;
+}
+
+.wheel:last-child {
+    margin-right: -6px;
+}
+
+.text {
+    position: absolute;
+    width: 90%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: darkblue;
+    display: none; 
+    margin-left: 10px;
+}
+
+.text--new {
+    top: 40px;
+}
+
+.text--arrived {
+    top: 30px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes shake 
+{
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-1px) rotate(-0.2deg);
+    }
+
+    40% {
+        transform: translateX(1.5px) rotate(0.2deg);
+    }
+
+    60% {
+        transform: translateX(-1.5px) rotate(-0.2deg);
+    }
+
+    80% {
+        transform: translateX(1px) rotate(0.2deg);
+    }
+}
+
+.scene:hover .text--new {
+    display: block;
+}
+.scene:active .text--arrived {
+    display: block;
+}
+.scene:active .text--new {
+    display: none;
+}
+
+
+.scene:hover .squirrel--default {
+  display: block;
+}
+.scene:active .squirrel--default {
+  display: none;
+}
+.scene:active .squirrel--alt {
+  display: block;
+}
+
+
+.car-body--alt { display: none; }
+/*по умолчанию второй скрыт)*/
+
+.scene:has(:active) .wheels {
+  display: none;
+}
+.scene:has(:active) .squirrel--default { display: none; }
+.scene:has(:active) .squirrel--alt     { display: block; }
+.scene:has(:active) .car-body--default { display: none; }
+.scene:has(:active) .car-body--alt     { display: block; }
+
+
+@keyframes squirrel-3parabolas {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+
+  /* Парабола 1 */
+   5%  { transform: translate3d(-50px,  -60px, 0) rotate(-3deg); }
+  10%  { transform: translate3d(-100px, -110px,0) rotate(-6deg); } /* вершина */
+  15%  { transform: translate3d(-150px, -60px, 0) rotate(-8deg); }
+  20%  { transform: translate3d(-200px,   0px, 0) rotate(-9deg); }
+
+  /* Парабола 2 */
+  25%  { transform: translate3d(-250px, -55px, 0) rotate(-10deg); }
+  30%  { transform: translate3d(-300px, -110px,0) rotate(-11deg); } /* вершина */
+  35%  { transform: translate3d(-350px, -55px, 0) rotate(-12deg); }
+  40%  { transform: translate3d(-400px,   0px, 0) rotate(-13deg); }
+
+  /* Парабола 3 */
+  45%  { transform: translate3d(-450px, -50px, 0) rotate(-14deg); }
+  50%  { transform: translate3d(-500px, -100px,0) rotate(-15deg); } /* вершина */
+  55%  { transform: translate3d(-550px, -50px, 0) rotate(-16deg); }
+  60%  { transform: translate3d(-600px,   0px, 0) rotate(-17deg); }
+
+  /* Добегает и уходит за край */
+  75%  { transform: translate3d(-680px, -10px, 0) rotate(-18deg); }
+  100% { transform: translate3d(-820px,  14px, 0) rotate(-19deg); }
+}
+
+/* Запуск полёта при удержании клика */
+.scene:active .squirrel--alt,
+.scene:has(:active) .squirrel--alt {
+  display: block !important;
+  animation: squirrel-3parabolas 1600ms linear forwards;
+  z-index: 5;
+}
+
+.content { --scene-bob-amp: 3px; } /* 2–5px — самое то */
+.scene { will-change: transform; }
+
+/* вертикальная тряска при клике */
+@keyframes scene-press-bob {
+  0%, 100% { transform: translateY(0); }
+  25%      { transform: translateY(calc(var(--scene-bob-amp) * -1)); }
+  50%      { transform: translateY(0); }
+  75%      { transform: translateY(var(--scene-bob-amp)); }
+}
+
+/* трясём весь контейнер, пока кнопка зажата */
+.scene:active,
+.scene:has(:active) {
+  animation: scene-press-bob 900ms ease-in-out infinite;
+}
+
